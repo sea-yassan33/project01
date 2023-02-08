@@ -27,11 +27,12 @@
           <div class="d-flex flex-colum row" action="#" method="POST" id="form">
             <div class="form-group col-md-12">
               <label for="name">NAME</label>
-              <input class="form-control" type="text" name="name" id="name">
+              <!-- v-model="formData.name" を追加 -->
+              <input v-model="formData.name" class="form-control" type="text" name="name" id="name">
             </div>
             <div class="form-group col-md-12">
               <label for="name">e-mail</label>
-              <input class="form-control" type="email" name="email" id="email"></td>
+              <input v-model="formData.email" class="form-control" type="email" name="email" id="email"></td>
             </div>
             <div class="form-group col-md-12">
               <label for="name">e-mail(確認)</label>
@@ -39,7 +40,7 @@
             </div>
             <div class="form-group col-md-12">
               <label for="name">内容</label>
-              <textarea class="form-control" name="content" id="content"></textarea>
+              <textarea v-model="formData.content" class="form-control" name="content" id="content"></textarea>
             </div>
             <div>
               <button type="reset" class="btn btn-primary margin-r">リセット</button>
@@ -47,6 +48,13 @@
             </div>
           </div>
         </form>
+        <!-- 入力内容を表示するエリアを作成 -->
+        <section class="">
+          <div class="h2">confirmation</div>
+          <p><span>名前：</span><span>{{ formData.name }}</span></p>
+          <p><span>e-mail：</span><span>{{ formData.email }}</span></p>
+          <p><span>内容：</span><span>{{ formData.content }}</span></p>
+        </section>
       </div>
       
     </section>
